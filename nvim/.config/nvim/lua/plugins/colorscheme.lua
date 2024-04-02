@@ -7,6 +7,7 @@ return {
 	},
 	init = function()
 		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.hi("Comment cterm=italic gui=italic guibg=#5F26A4 guifg=#7DFB9C")
 	end,
 }
 
