@@ -8,34 +8,35 @@ return {
 		local harpoon = require("harpoon")
 
 		-- REQUIRED
-		harpoon:setup()
+		harpoon:setup({})
 		-- REQUIRED
 
-		vim.keymap.set("n", "<leader>i", function()
-			harpoon:list():append()
-		end)
-		vim.keymap.set("n", "<C-a>", function()
+		vim.keymap.set("n", "<leader>h", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end)
 
-		vim.keymap.set("n", "<C-n>", function()
+		vim.keymap.set("n", "<M-a>", function()
+			harpoon:list():append()
+		end)
+
+		vim.keymap.set("n", "<M-n>", function()
 			harpoon:list():select(1)
 		end)
-		vim.keymap.set("n", "<C-e>", function()
+		vim.keymap.set("n", "<M-e>", function()
 			harpoon:list():select(2)
 		end)
-		vim.keymap.set("n", "<C-i>", function()
+		vim.keymap.set("n", "<M-i>", function()
 			harpoon:list():select(3)
 		end)
-		vim.keymap.set("n", "<C-o>", function()
+		vim.keymap.set("n", "<M-o>", function()
 			harpoon:list():select(4)
 		end)
 
 		-- Toggle previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", "<C-t>", function()
+		vim.keymap.set("n", "<M-t>", function()
 			harpoon:list():prev()
 		end)
-		vim.keymap.set("n", "<C-s>", function()
+		vim.keymap.set("n", "<M-s>", function()
 			harpoon:list():next()
 		end)
 	end,
