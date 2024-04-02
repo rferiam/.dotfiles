@@ -16,6 +16,7 @@ return { -- Highlight, edit, and navigate code
 				"css",
 				"go",
 				"html",
+				"http",
 				"javascript",
 				"lua",
 				"markdown",
