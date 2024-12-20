@@ -5,9 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
     let
     configuration = { pkgs, ... }: {
       nixpkgs.config.allowUnfree = true;
@@ -28,10 +29,8 @@
           jankyborders
           jq
           lf
-          mas
           mosh
           neovim
-          nerd-fonts.hack
           nmap
           pnpm
           qmk
@@ -45,6 +44,11 @@
           zsh-autosuggestions
           zsh-syntax-highlighting
       ];
+
+      fonts.packages = with pkgs; [
+        nerd-fonts.hack
+      ];
+
 
       homebrew = {
         enable = true;
@@ -92,7 +96,17 @@
   {
 # $ darwin-rebuild build --flake .#macbook
     darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ 
+        configuration
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = "rferiam";
+          };
+        }
+      ];
     };
   };
 }
