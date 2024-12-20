@@ -77,7 +77,7 @@ return {
 
 			bashls = {},
 			gopls = {},
-			tsserver = {
+			ts_ls = {
 				-- Disable formatting for tsserver
 				capabilities = {
 					textDocument = {

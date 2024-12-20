@@ -120,7 +120,7 @@ multiplier = 3
 
 [window]
 decorations = "buttonless"
-opacity = 0.9
+opacity = 0.8
 option_as_alt = "Both"
 
 [window.padding]

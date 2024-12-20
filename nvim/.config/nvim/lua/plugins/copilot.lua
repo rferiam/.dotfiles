@@ -27,10 +27,6 @@ return {
 		opts = {
 			debug = false, -- Set to true to see response from Github Copilot API. The log file will be in ~/.local/state/nvim/CopilotChat.nvim.log.
 			prompts = prompts,
-			window = {
-				layout = "float",
-				border = "rounded",
-			},
 		},
 		event = "VeryLazy",
 		keys = {

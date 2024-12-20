@@ -3,5 +3,4 @@
 tmux/.config/tmux/plugins/
 
 zsh/.config/zsh/.zsh_history
-
-
+zsh/.config/zsh/.zcompdump

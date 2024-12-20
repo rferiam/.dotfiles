@@ -6,14 +6,10 @@ PATH="$HOME/bin:$PATH"
 
 bindkey -v
 
-[ -f "$ZDOTDIR/.fzf.zsh" ] && source "$ZDOTDIR/.fzf.zsh"
-
 alias vim="nvim"
 alias ls="eza -1A --icons --group-directories-first"
 alias cat="bat"
-
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+alias flushcache='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"

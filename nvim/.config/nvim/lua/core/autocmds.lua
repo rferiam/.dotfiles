@@ -15,5 +15,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+	desc = "Terminal",
+	group = augroup("term-open"),
+	pattern = "*",
+	callback = function()
+		vim.opt.number = false
+		vim.opt.relativenumber = false
+	end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

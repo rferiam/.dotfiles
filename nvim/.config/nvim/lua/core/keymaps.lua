@@ -48,5 +48,13 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+-- Terminal
+vim.keymap.set("t", "<leader><esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+vim.keymap.set("n", "<leader>st", function()
+	vim.cmd.new()
+	vim.api.nvim_win_set_height(0, 15)
+	vim.cmd.term()
+end, { desc = "Open small terminal" })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
