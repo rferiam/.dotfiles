@@ -46,7 +46,7 @@
       ];
 
       fonts.packages = with pkgs; [
-        nerd-fonts.hack
+        nerd-fonts.jetbrains-mono
       ];
 
 
@@ -54,6 +54,10 @@
         enable = true;
         brews = [
           "tpm"
+        ];
+        casks = [
+          "1password"
+          "ghostty"
         ];
         masApps = { 
           "WireGuard" = 1451685025; 
