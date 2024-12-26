@@ -34,7 +34,13 @@ return {
 		local builtin = require("telescope.builtin")
 		-- Better grep
 		-- vim.keymap.set('n', '<leader>sg', require('telescope').extensions.live_grep_args.live_grep_args, { desc = '[S]earch by [G]rep' })
-		vim.keymap.set("n", "<leader>sp", builtin.git_files, { desc = "[S]earch [P]roject" })
+		vim.keymap.set("n", "<leader>sp", function()
+			local ok, _ = pcall(builtin.git_files)
+			if not ok then
+				print("Not a git repository")
+				builtin.find_files()
+			end
+		end, { desc = "[S]earch [P]roject" })
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
