@@ -17,7 +17,6 @@
 # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
           aerospace
-          alacritty
           arc-browser
           bat
           eza
